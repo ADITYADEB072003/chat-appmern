@@ -3,6 +3,7 @@
 import React from 'react'; // Only React is needed for a basic static component
 import './RightSidebar.css'; // Link CSS file for styling (fixed filename case)
 import assets from '../../assets/assets'; // Import local assets (images, icons) - added semicolon
+import { logout } from '../../config/firebase';
 
 function RightSidebar() {
   return (
@@ -35,7 +36,9 @@ function RightSidebar() {
         </div>
       </div>
 
-      <button>Log Out</button> {/* Logout button. Functionality is removed in this static version. */}
+      <button onClick={()=>{
+        logout()
+      }}>Log Out</button> {/* Logout button. Functionality is removed in this static version. */}
     </div>
   );
 }
