@@ -1,0 +1,182 @@
+/* src/components/rightsidebar/rightsidebar.css */
+
+.RS {
+  color: white;
+  background: linear-gradient(180deg, #001030 0%, #001545 100%); /* Gradient background */
+  position: relative;
+  height: 75vh;
+  overflow-y: auto; /* Better scrolling */
+  border-left: 1px solid #ffffff20; /* Subtle border */
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+/* Custom scrollbar */
+.RS::-webkit-scrollbar {
+  width: 6px;
+}
+
+.RS::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.RS::-webkit-scrollbar-thumb {
+  background: #077eff40;
+  border-radius: 3px;
+}
+
+.RS::-webkit-scrollbar-thumb:hover {
+  background: #077eff60;
+}
+
+.RS_profile {
+  padding: 40px 20px 30px; /* Better spacing */
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05); /* Subtle background */
+  border-radius: 15px;
+  margin: 20px;
+  backdrop-filter: blur(10px); /* Glass effect */
+}
+
+.RS_profile img {
+  width: 90px; /* Slightly smaller */
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: 3px solid #077eff; /* Blue border */
+  box-shadow: 0 4px 15px rgba(7, 126, 255, 0.3); /* Glow effect */
+  transition: transform 0.3s ease; /* Hover animation */
+}
+
+.RS_profile img:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.RS_profile h3 {
+  font-size: 16px;
+  font-weight: 500; /* Slightly bolder */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 15px 0 8px;
+}
+
+.RS_profile h3 .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #00ff88; /* Green dot color */
+  box-shadow: 0 0 8px rgba(0, 255, 136, 0.5); /* Glow effect */
+}
+
+.RS_profile p {
+  font-size: 12px; /* Slightly larger */
+  opacity: 0.7;
+  font-weight: 300;
+  line-height: 1.4; /* Better readability */
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.RS hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #ffffff30, transparent);
+  margin: 25px 20px;
+}
+
+.RS_media {
+  padding: 0 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.RS_media > p {
+  margin-bottom: 15px;
+  color: #ffffff90;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.RS_media > p::before {
+  content: "📷";
+  font-size: 16px;
+}
+
+.RS_media div {
+  max-height: 200px; /* Slightly larger */
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px; /* Larger gap */
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.RS_media div img {
+  width: 100%;
+  height: 55px;
+  object-fit: cover; /* Better image fitting */
+  border-radius: 8px; /* More rounded */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.RS_media div img:hover {
+  transform: scale(1.05);
+  border-color: #077eff;
+  box-shadow: 0 4px 12px rgba(7, 126, 255, 0.4);
+}
+
+.RS button {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #077eff, #0056cc); /* Gradient button */
+  color: white;
+  border: none;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 12px 25px; /* Better proportions */
+  border-radius: 25px; /* More rounded */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(7, 126, 255, 0.3);
+  min-width: 100px; /* Consistent width */
+}
+
+.RS button:hover {
+  background: linear-gradient(135deg, #0056cc, #003d99);
+  transform: translateX(-50%) translateY(-2px); /* Lift effect */
+  box-shadow: 0 6px 20px rgba(7, 126, 255, 0.4);
+}
+
+.RS button:active {
+  transform: translateX(-50%) translateY(0px);
+  box-shadow: 0 3px 10px rgba(7, 126, 255, 0.3);
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 900px) {
+  .RS {
+    display: none;
+  }
+}
+
+/* Additional responsive adjustments */
+@media screen and (max-width: 1200px) {
+  .RS_profile {
+    margin: 15px;
+    padding: 30px 15px 20px;
+  }
+  
+  .RS_profile img {
+    width: 80px;
+  }
+  
+  .RS_media div {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+  }
+}

@@ -6,7 +6,7 @@
     place-items: center;
 }
 
-/* Main Layout Container for Sidebars and Chat Box */
+ /* Main Layout Container for Sidebars and Chat Box */
 .chat-container {
     width: 95%;
     height: 75vh;
@@ -16,21 +16,6 @@
     grid-template-columns: 1fr 2fr 1fr;
 }
 
-/* Loading Text */
-.loading {
-    font-size: 50px;
-    color: white;
-    margin: 0;
-    text-align: center;
-}
+
 
 /* Media Queries for Responsiveness */
-@media (max-width: 900px) {
-    .chat-container {
-        display: flex;
-    }
-    
-    .loading {
-        font-size: 30px;
-    }
-}
