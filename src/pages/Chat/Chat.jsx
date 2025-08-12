@@ -6,17 +6,17 @@ import RigthSidebar from '../../components/RightSidebar/RigthSidebar';
 import './Chat.css';
 
 const Chat = () => {
-    
+
 
     return (
         <div className="chat">
-           
-               
-                <div className="chat-container">
-                    <LeftSidebar />
-               <ChatBox/>
-              <RigthSidebar/>
-                </div>
+
+
+            <div className="chat-container">
+                <LeftSidebar />
+                <ChatBox />
+                <RigthSidebar />
+            </div>
             )
         </div>
     );
