@@ -130,7 +130,7 @@ const ProfileUpdate = () => {
         </form>
 
         <img
-          src={assets.logo_icon}
+          src={image?URL.createObjectURL(image): prevImage ?prevImage:assets.logo_icon}
           alt="App Logo"
           className="profile-logo"
         />

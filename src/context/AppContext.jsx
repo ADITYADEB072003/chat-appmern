@@ -45,14 +45,23 @@ const AppContextProvider = (props) => {
    * Navigate based on profile completeness when userData changes
    */
   useEffect(() => {
-    if (userData) {
-      if (userData.avatar && userData.name) {
-        navigate("/chat");
-      } else {
+    if (!userData) return;
+  
+    const { pathname } = location;
+  
+    // Missing profile info → force profile page
+    if (!userData.avatar || !userData.name) {
+      if (pathname !== "/profile") {
         navigate("/profile");
       }
+      return;
     }
-  }, [userData, navigate]);
+  
+    // If profile complete and currently on landing page, go to chat
+    if (pathname === "/" || pathname === "/login") {
+      navigate("/chat");
+    }
+  }, [userData, navigate, location]);
 
   /**
    * Keep "lastSeen" updated every minute while chatting
@@ -114,6 +123,7 @@ const AppContextProvider = (props) => {
     setMessagesID,
     messages,
     setMessages,
+    
     chatUser,
     setChatUser,
     loadUserData,
