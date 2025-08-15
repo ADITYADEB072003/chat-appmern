@@ -4,9 +4,7 @@ import LeftSidebar from '../../components/LeftSidebar/LeftSidebar';
 import ChatBox from '../../components/ChatBox/ChatBox';
 import RightSidebar from '../../components/RightSidebar/RigthSidebar';
 import './Chat.css'
-// import LeftSidebar from '../../components/LeftSidebar/LeftSidebar'
-// import ChatBox from '../../components/ChatBox/ChatBox'
-// //import RightSidebar from '../../components/RightSidebar/RightSidebar'
+
 import { AppContext } from '../../context/Appcontext'
 
 
