@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 import { db } from '../../config/firebase';        // Firestore instance
 import assets from '../../assets/assets';           // Static assets
 import  upload  from '../../lib/upload'  ;      // Helper to upload image to storage
-import { AppContext } from '../../context/appContext'; // Global state
+import { AppContext } from '../../context/Appcontext'; // Global state
 
 import './ProfileUpdate.css';
 

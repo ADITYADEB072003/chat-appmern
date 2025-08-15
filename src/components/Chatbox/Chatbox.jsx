@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import './ChatBox.css'
 import assets from '../../assets/assets'
-import { AppContext } from '../../context/AppContext';
+import { AppContext } from '../../context/Appcontext';
 import { arrayUnion, doc, getDoc, onSnapshot, updateDoc } from 'firebase/firestore';
 import { db } from '../../config/firebase';
 import { toast } from 'react-toastify';

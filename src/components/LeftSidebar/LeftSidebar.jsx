@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './LeftSidebar.css'
 import assets from '../../assets/assets'
-import { AppContext } from '../../context/AppContext';
+import { AppContext } from '../../context/Appcontext';
 import { toast } from 'react-toastify';
 import { db, logout } from '../../config/firebase';
 import { arrayUnion, collection, doc, getDoc, getDocs, query, serverTimestamp, setDoc, updateDoc, where } from 'firebase/firestore';
