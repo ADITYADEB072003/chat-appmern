@@ -1,46 +1,44 @@
-// src/components/rightsidebar/rightsidebar.jsx
+import React, { useContext, useEffect,useState } from 'react'
+import './RightSidebar.css'
+import assets from '../../assets/assets'
+import { logout } from '../../config/firebase'
+import { AppContext } from '../../context/AppContext'
 
-import React from 'react'; // Only React is needed for a basic static component
-import './RightSidebar.css'; // Link CSS file for styling (fixed filename case)
-import assets from '../../assets/assets'; // Import local assets (images, icons) - added semicolon
-import { logout } from '../../config/firebase';
+const RightSidebar = () => {
 
-function RightSidebar() {
-  return (
-    <div className="RS"> {/* Main div for right sidebar */}
-      <div className="RS_profile"> {/* Profile section for the selected user */}
-        <img
-          src={assets.profile_img} // Static placeholder for user's avatar
-          alt="User Avatar"
-        />
-        <h3>
-          {/* Static green dot to indicate online status visually */}
-          <img src={assets.green_dot} className="dot" alt="Online Status" />
-          Static User Name {/* Static placeholder for user's name */}
-        </h3>
-        <p>This is a placeholder bio for the user's profile. It provides a brief description.</p> {/* Static placeholder for user's bio */}
+  const { chatUser,messages } = useContext(AppContext);
+  const [msgImages,setMsgImages] = useState([]);
+
+  useEffect(()=>{
+    let tempVar = [];
+    messages.map((msg)=>{
+      if (msg.image) {
+        tempVar.push(msg.image)
+      }
+    })
+    setMsgImages(tempVar);
+  },[messages])
+  
+  
+  return chatUser  ? (
+    <div className='rs'>
+      <div className='rs-profile'>
+        <img src={chatUser.userData.avatar} alt="" />
+        <h3>{Date.now() - chatUser.userData.lastSeen <= 70000 ?<img className='dot' src={assets.green_dot} alt=''/>:null}{chatUser.userData.name}</h3>
+        <p>{chatUser.userData.bio}</p>
       </div>
-
-      <hr /> {/* Horizontal line to separate sections */}
-
-      <div className="RS_media"> {/* Media section for shared images */}
-        <p>Media</p> {/* Label for the media gallery */}
+      <hr />
+      <div className="rs-media">
+        <p>Media</p>
         <div>
-          {/* Static images to represent the media gallery, as described in source */}
-          <img src={assets.pic1} alt="Shared Image 1" />
-          <img src={assets.pic2} alt="Shared Image 2" />
-          <img src={assets.pic3} alt="Shared Image 3" />
-          <img src={assets.pic4} alt="Shared Image 4" />
-          
-          <img src={assets.pic2} alt="Shared Image 6" />
+          {msgImages.map((url,index)=>(<img onClick={()=>window.open(url)} key={index} src={url} alt="" />))}
         </div>
       </div>
-
-      <button onClick={()=>{
-        logout()
-      }}>Log Out</button> {/* Logout button. Functionality is removed in this static version. */}
+      <button onClick={()=>logout()}>Logout</button>
     </div>
-  );
+  ) : <div className='rs'>
+    <button onClick={()=>logout()}>Logout</button>
+  </div>
 }
 
-export default RightSidebar;
+export default RightSidebar

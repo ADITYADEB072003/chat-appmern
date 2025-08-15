@@ -1,90 +1,71 @@
-/* Main Left Sidebar Container */
 .ls {
     background: #001030;
-    height: 75vh;
     color: white;
-    display: flex;
-    flex-direction: column;
+    height: 75vh;
 }
 
-/* Top Section */
 .ls-top {
     padding: 20px;
-    flex-shrink: 0;
 }
 
-/* Navigation Section */
 .ls-nav {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
+    align-items: center;
 }
 
-.logo {
+.ls-nav .logo {
     max-width: 140px;
-    height: auto;
 }
 
-/* Menu Section */
-.menu {
-    position: relative;
+.ls-nav .menu img {
+    max-height: 20px;
+    opacity: 0.6;
     cursor: pointer;
 }
 
-.menu img {
-    opacity: 0.6;
-    max-height: 20px;
-    width: auto;
+.ls-nav .menu {
+    position: relative;
+    padding: 10px 0;
 }
 
-.submenu {
+.menu .sub-menu {
     position: absolute;
     top: 100%;
     right: 0;
     width: 130px;
     padding: 20px;
     border-radius: 5px;
-    background: #2a2a2a;
+    background-color: white;
+    color: black;
     display: none;
-    z-index: 10;
 }
 
-.menu:hover .submenu {
+.sub-menu hr{
+    border: none;
+    height: 1px;
+    background: #a4a4a4;
+    margin: 8px 0;
+}
+.sub-menu p{
+    cursor: pointer;
+    font-size: 14px;
+}
+.menu:hover .sub-menu {
     display: block;
 }
 
-.submenu hr {
-    border: none;
-    height: 1px;
-    background: #555;
-    margin: 10px 0;
-}
-
-.submenu p {
-    cursor: pointer;
-    font-size: 12px;
-    margin: 5px 0;
-    color: white;
-}
-
-.submenu p:hover {
-    color: #077eff;
-}
-
-/* Search Section */
 .ls-search {
-    background: #002670;
+    background-color: #002670;
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 12px;
-    border-radius: 10px;
+    padding: 10px 12px;
+    margin-top: 20px;
 }
 
 .ls-search img {
     width: 16px;
-    height: 16px;
 }
 
 .ls-search input {
@@ -93,132 +74,71 @@
     outline: none;
     color: white;
     font-size: 11px;
-    flex: 1;
 }
 
 .ls-search input::placeholder {
-    color: #c7c7c7;
+    color: #c8c8c8;
 }
 
-/* Friends List Section */
 .ls-list {
-    padding: 0 20px 20px 20px;
-    flex: 1;
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    overflow-y: scroll;
 }
 
 .friends {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px;
+    padding: 10px 20px;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.2s ease;
-    margin-bottom: 5px;
-}
-
-.friends:hover {
-    background: #077eff;
+    font-size: 13px;
 }
 
 .friends img {
     width: 35px;
-    height: 35px;
+    aspect-ratio: 1/1;
     border-radius: 50%;
-    object-fit: cover;
-    flex-shrink: 0;
 }
 
 .friends div {
-    flex: 1;
-    overflow: hidden;
-    min-width: 0;
-}
-
-.friends p {
-    color: white;
-    font-size: 13px;
-    margin: 0 0 2px 0;
-    font-weight: 500;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    display: flex;
+    flex-direction: column;
 }
 
 .friends span {
     color: #9f9f9f;
-    font-size: 9px;
-    display: block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 11px;
 }
 
-/* Scrollbar Styling */
-.ls-list::-webkit-scrollbar {
-    width: 4px;
+.friends:hover {
+    background-color: #077EFF;
+}
+.friends:hover span {
+    color: white;
 }
 
-.ls-list::-webkit-scrollbar-track {
-    background: transparent;
+.add-user div {
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.ls-list::-webkit-scrollbar-thumb {
-    background: #077eff;
-    border-radius: 2px;
+.add-user .add-icon {
+    width: 25px;
 }
 
-.ls-list::-webkit-scrollbar-thumb:hover {
-    background: #0056b3;
+.friends.border img {
+    border: 3px solid #07fff3;
 }
 
-/* Responsive Design */
-@media (max-width: 900px) {
-    .ls {
-        height: 100vh;
+.friends.border div span {
+    color: #07fff3;
+}
+@media (max-width:900px) {
+    .ls{
         width: 100%;
-    }
-    
-    .ls-top {
-        padding: 15px;
-    }
-    
-    .ls-nav {
-        margin-bottom: 15px;
-    }
-    
-    .logo {
-        max-width: 120px;
-    }
-    
-    .ls-list {
-        padding: 0 15px 15px 15px;
-    }
-}
-
-@media (max-width: 600px) {
-    .ls-top {
-        padding: 10px;
-    }
-    
-    .ls-search {
-        padding: 10px;
-    }
-    
-    .ls-search input {
-        font-size: 10px;
-    }
-    
-    .friends {
-        padding: 8px;
-    }
-    
-    .friends p {
-        font-size: 12px;
-    }
-    
-    .friends span {
-        font-size: 8px;
     }
 }
