@@ -8,6 +8,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from './config/firebase'
 import { AppContext } from '../src/context/Appcontext'
+//w
 const App = () => {
   const navigator = useNavigate();
   const { loadUserData } = useContext(AppContext);
