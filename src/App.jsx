@@ -7,7 +7,7 @@ import ProfileUpdate from './pages/ProfileUpdate/ProfileUpdate'
 import { ToastContainer, toast } from 'react-toastify'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from './config/firebase'
-import { AppContext } from './context/Appcontext'
+import { AppContext } from '../src/context/Appcontext'
 const App = () => {
   const navigator = useNavigate();
   const { loadUserData } = useContext(AppContext);
